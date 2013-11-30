@@ -1,0 +1,27 @@
+---
+layout: default
+title: Posting All
+---
+<h2>I do </h2>
+<h1>I Understand</h1>
+<br><br><br>
+<div id="home">
+	<section id="index">
+		{% for post in site.posts %}
+		<article>
+			<h2><a title="Posted on {{ post.date | date_to_string }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+			<summary>
+				<p>{{ post.content | strip_html | truncate: 300 }}</p>
+			</summary>
+		</article>
+		{% endfor %}
+	</section>
+</div>
+<div class="footer">
+	<div class="contact">
+		<p>
+			<a href="https://github.com/jancuk">github.com/jancuk</a><br/>
+			<a href="http://jancuk.github.io/archive.html">Archive</a><br/>
+		</p>
+	</div>
+</div>
