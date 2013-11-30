@@ -5,10 +5,11 @@
 /*****************************************************************************/
 
 /* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-}
+@import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
 
 html, body { height: 100%; }
 
@@ -19,10 +20,19 @@ body {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
+h1 { 
+    font-family: 'Cinzel', serif;
+    color: #333;
+    padding: 10px;
+    text-align: center; 
+}
+h2  {
+    font-family: 'Wellfleet', cursive; 
+    color: #333;
+    padding: 10px;
+    text-align: center;
+}
 
-h1 { margin-bottom: 1em; }
 p { margin: 1em 0; }
 
 a         { color: #00a; }
@@ -38,6 +48,8 @@ ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
 }
+
+
 
 ul.posts li {
   line-height: 1.75em;
@@ -158,3 +170,59 @@ ul.posts span {
 .post pre.terminal code {
   background-color: #333;
 }
+
+
+.icons ul {
+  width: 37%;
+  margin: 0 auto;
+}
+
+.icons ul li{
+  list-style: none;
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #C0C0C0;
+  display: inline-block;
+  line-height: 1;
+  margin: 1px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.icons i {
+  display: block;
+  font-size: 24px;
+  line-height: 50px; width: 50px;
+  text-align: center;
+}
+.icons a {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 12px;
+  position: relative;
+}
+/*Now we will create fish-eye shapes using pseudo elements and clip them to add a curve to the sides of the icons*/
+.icons a:before, .icons a:after {
+  content: '';
+  position: absolute; left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: inherit;
+  border-radius: 100%; /*circle*/
+  /*time to transform the circle into fish-eye shape. iOS7 style now.*/
+  transform: scaleX(2) scaleY(1.05);
+  /*clipping the left and right sides - 17px from the left and right*/
+  clip: rect(0, 33px, 50px, 17px);
+  /*pushing it behind the icon*/
+  z-index: -1;
+}
+/*duplicating the :before element and rotating it 90deg and swapping the X/Y transforms*/
+.icons a:after {
+  transform: scaleY(2) scaleX(1.05) rotate(90deg);
+}
+/*colors*/
+.tw {background: #00ACF0;}
+.fb {background: #3B5997;}
+.gp {background: #DB4F48;}
+.ig {background: #447397;}
+.li {background: #007DB8;}
+.yt {background: #D12E2E;}
