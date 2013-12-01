@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Hemmm
+title: Computer
 ---
 <div id="home">
 	<section id="index">
 		{% for post in site.posts %}
 		<article>
-			{% if post.categories contains 'hemm' %}
+			{% if post.categories contains 'computer' %}
 			<h2><a title="Posted on {{ post.date | date_to_string }}" href="{{ post.url }}">{{ post.title }}</a></h2>
 			<summary>
 				<p>{{ post.content | strip_html | truncate: 300 }}</p>

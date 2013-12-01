@@ -3,15 +3,19 @@ layout: default
 ---
 <h2>{{ page.title }}</h2>
 <p class="meta">{{ page.date | date_to_string }}</p>
-
+<div class="nav">
+	<a href="/">Cover</a>
+	<a href="/archive.html">Archive</a>
+	<a href="/about.html">About</a>
+	<a href="/atom.xml">Subscribe</a>
+</div>
 <div class="post">
-{{ content }}
+	{{ content }}
 </div>
 <div class="footer">
-  <div class="contact">
-    <p>
-      <a href="https://github.com/jancuk">github.com/jancuk</a><br/>
-      <a href="http://jancuk.github.io/berita.html">Post All</a><br/>
-    </p>
-  </div>
+	<div class="contact">
+		<p>
+			<a href="https://github.com/jancuk">github.com/jancuk</a><br/>
+		</p>
+	</div>
 </div>
