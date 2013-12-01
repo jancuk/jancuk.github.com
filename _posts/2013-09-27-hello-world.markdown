@@ -2,7 +2,7 @@
 layout: post
 title: "mechanize nokogiri"
 date: 2013-09-27 02:06:18
-categories: programing co
+categories: computer
 ---
 
 Mechanize and nokogiri to gather some data. mechanize is used for automating interaction with website, automatically stores and sends cookies, follows redirects, and can follow links and submit forms. And  Nokogiri is used for scraping data (HTML).

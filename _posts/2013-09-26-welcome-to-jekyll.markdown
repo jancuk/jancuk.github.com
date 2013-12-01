@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2013-09-26 03:06:18
-categories: jekyll update
+categories: computer
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
