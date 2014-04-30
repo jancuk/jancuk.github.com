@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>WebRTC Introduction</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='http://fonts.googleapis.com/css?family=Cinzel:700|Electrolize|Wellfleet' rel='stylesheet' type='text/css'>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+
+  <div class="site">
+  <h2>WebRTC Introduction</h2>
+   <div class="nav">
+      <a href="/">Home</a>
+      <a href="/archive.html">Archive</a>
+      <a href="/computer.html">Computer</a>
+      <a href="/hemm.html">Other</a>
+      <a href="/atom.xml">Subscribe</a>
+   </div>
+    <p class="meta">30 May 2014</p>
+<div class="post">
+	<p>What is WebRTC ? WebRTC is an Industry and standards effort to put real-time communciations cappabilites into all browser and make these capabilities APIs (Johnston - API WebRTC). Real Time Communication on WebRTC enables peer to peer video, audio, data communication between web browsers. This allows for video calling, video chat, and peer to peer file sharing.</p>
+
+<p>Why You Should use WebRTC ? Because WebRTC require No plugins, applications, all you need is a WebRTC compatible browser. As Developer, WebRTC is entirely peer to peer, so you don&#39;t have to pay any of the bandwitch accross the wire.</p>
+
+<p>Jason Uberti Google, one of the Industry&#39;s most visible advocates of WebRTC, says that technology is generating excitement among players accross the communication spectrum. This includes Cisco, Microsoft, Ericsson, and many others. He says this is becasue &#39;the premise of webRTC is to build real time communication into the fabric of the web, where every browser has a built-in, state-of-art communication stack&#39;</p>
+
+<p>So, You can check on http://iswebrtcreadyyet.com/ to knowing browser ready used..</p>
+
+<p>WebRTC has four API&#39;s to stream between browsers :</p>
+
+<ol>
+<li>GetUserMedia()</li>
+</ol>
+
+<p>The getUserMedia API provides access to multimedia streams (video, audio or both) form local devices.</p>
+
+<p>Demo</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="p">.........................</span>
+  <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">||</span>
+  <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mozGetUserMedia</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">constrains</span> <span class="o">=</span> <span class="p">{</span><span class="nx">audio</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">video</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+  <span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;video&quot;</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">successCallback</span><span class="p">(</span><span class="nx">stream</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">stream</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">){</span>
+      <span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+      <span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">-</span> <span class="nx">stream</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">errorCallback</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigator.getUserMedia error &quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span><span class="nx">constrains</span><span class="p">,</span> <span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">constrains</span> <span class="o">=</span> <span class="p">{</span><span class="nx">audio</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">video</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+  <span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;video&quot;</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">successCallback</span><span class="p">(</span><span class="nx">stream</span><span class="p">){</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+   <span class="nb">window</span><span class="p">.</span><span class="nx">stream</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">;</span>
+   <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">){</span>
+     <span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+   <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+     <span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">-</span> <span class="nx">stream</span><span class="p">;</span>
+   <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">errorCallback</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigator.getUserMedia error &quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span><span class="nx">constrains</span><span class="p">,</span> <span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+  <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span><span class="nx">constrains</span><span class="p">,</span> <span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Continued ... next time</p>
+
+</div>
+<div class="footer">
+	<div class="contact">
+		<p>
+			<a href="https://github.com/jancuk">github.com/jancuk</a><br/>
+		</p>
+	</div>
+</div>
+
+  </div>
+
+</body>
+</html

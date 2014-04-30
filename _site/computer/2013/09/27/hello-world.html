@@ -54,7 +54,7 @@ example : </p>
 
 <span class="k">def</span> <span class="nf">get_data</span>
     <span class="n">data</span> <span class="o">=</span> <span class="vi">@agent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://twitter.com&#39;</span><span class="p">)</span>
-    <span class="n">html</span> <span class="o">=</span> <span class="ss">Nokogiri</span><span class="p">:</span><span class="ss">:HTML</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">HTML</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
     <span class="nb">print</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.conversations-enabled , .js-original-tweet&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
         <span class="nb">puts</span> <span class="n">i</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.stream-item-header a span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
