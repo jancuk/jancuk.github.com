@@ -165,7 +165,7 @@ ul.posts span {
 /* standard */
 .post pre {
   border: 1px solid #ddd;
-  background-color: #eef;
+  background-color: transparent;
   padding: 0 .4em;
 }
 

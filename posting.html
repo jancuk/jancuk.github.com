@@ -6,22 +6,38 @@ title: Jancuk Site
 <h1>I Understand</h1>
 <br><br><br>
 <div id="home">
-	<section id="index">
-		{% for post in site.posts %}
-		<article>
-			<h2><a title="Posted on {{ post.date | date_to_string }}" href="{{ post.url }}">{{ post.title }}</a></h2>
-			<summary>
-				<p>{{ post.content | strip_html | truncate: 300 }}</p>
-			</summary>
-		</article>
-		{% endfor %}
-	</section>
+  <section id="index">
+    {% for post in site.posts %}
+    <article>
+      <h2><a title="Posted on {{ post.date | date_to_string }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+      <summary>
+      <p>{{ post.content | strip_html | truncate: 300 }}</p>
+      </summary>
+    </article>
+    {% endfor %}
+  </section>
 </div>
-<div class="footer">
-	<div class="contact">
-		<p>
-			<a href="https://github.com/jancuk">github.com/jancuk</a><br/>
-			<a href="http://jancuk.github.io/archive.html">Archive</a><br/>
-		</p>
-	</div>
-</div>
+<footer>
+  <p>
+  Made with <a href="http://jekyllrb.com/">Jekyll</a>,
+  hosted on <a href="https://github.com/jancuk/jancuk.github.io">Github Pages</a>.
+  </p>
+  <ul class="links">
+    <li>
+      <a href="https://github.com/jancuk" title="See my code on GitHub">
+        <i class="icon-github"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/intent/follow?screen_name=azhar_amir" title="Follow me on Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/azharamir" title="Connect with me on LinkedIn">
+        <i class="icon-linkedin"></i>
+      </a>
+    </li>
+  </ul>
+</footer>
+

@@ -1,15 +1,40 @@
 ---
-layout: index
-title: Jancuk Site
+layout: default
+title: azhar amir~
 ---
-<h2>I do</h2>
-<h1>I Understand~</h1>
-<br><br>
-<div class="icons">
-	<ul>
-		<li><a href="/berita.html" class="li" title="All-In"><i class="icon-gittip"></i></a></li>
-		<li><a href="mailto:cak.azharr@gmail.com" class="yt" title="Send Email"><i class="icon-envelope"></i></a></li>
-		<li><a href="http://www.linkedin.com/pub/azhar-amir/40/a60/641" title="Linkedin" class="ig"><i class="icon-linkedin"></i></a></li>
-		<li><a href="https://github.com/jancuk" class="fb" title="Github"><i class="icon-github"></i></a></li>
-	</ul>
-</div>
+
+{% for post in site.posts %}
+<article>
+  {% if post.categories contains 'computer' %}
+  <h2><a title="Posted on {{ post.date | date_to_string }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+  <p class="meta">{{ post.date | date_to_string }}</p>
+  <div class="post">
+    <p>{{ post.content | strip_html | truncate: 350 }}<a href="{{ post.url }}"> Read More</a></p>
+  </div>
+  {% endif %}
+</article>
+{% endfor %}
+<footer>
+  <p>
+    Made with <a href="http://jekyllrb.com/">Jekyll</a>,
+    hosted on <a href="https://github.com/jancuk/jancuk.github.io">Github Pages</a>.
+  </p>
+  <ul class="links">
+    <li>
+      <a href="https://github.com/jancuk" title="See my code on GitHub">
+        <i class="icon-github"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/intent/follow?screen_name=azhar_amir" title="Follow me on Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/azharamir" title="Connect with me on LinkedIn">
+        <i class="icon-linkedin"></i>
+      </a>
+    </li>
+  </ul>
+</footer>
+
