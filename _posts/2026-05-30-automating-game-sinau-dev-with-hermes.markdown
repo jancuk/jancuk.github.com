@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How I Automated a Children's Game Platform with an AI Agent"
+title: "Autopilot Game Platform"
 date: 2026-05-30 09:00:00
 categories: computer
 ---
@@ -93,45 +93,6 @@ wrangler pages deploy dist/   # Deploy to Cloudflare Pages
 ```
 
 The entire process is autonomous. I get a Telegram notification when a new game ships.
-
-## The Audit Pipeline
-
-Shipping games is only half the battle. What about quality control?
-
-A second cron job runs every 2 days and audits the 6 newest games:
-
-```
-hawa-game-audit (every 2 days at 11:00 WIB)
-├── Model: deepseek-v4-pro via OpenCode
-├── Toolsets: browser, terminal, file, web
-└── Audits: 6 newest games, auto-removes buggy + lowest scored
-```
-
-The audit agent:
-
-1. Opens each game in a headless browser
-2. Attempts to play through the game programmatically
-3. Checks for common failure patterns (overlays that don't dismiss, blank screens, broken click handlers)
-4. Scores each game on playability
-5. **Auto-removes** the lowest-scoring game if it's genuinely broken
-
-This creates a natural selection loop: games that don't work get pruned, and new games take their place. The platform maintains quality without human review.
-
-## Lessons Learned
-
-### What worked
-
-- **Single-file games** are the perfect format for AI generation. No module system, no bundler config, no dependency resolution. One prompt → one file → one game.
-- **Browser testing is non-negotiable.** AI-generated code has subtle bugs that pass static analysis but fail at runtime. A game that "looks correct" in code might have an overlay that never dismisses, or click handlers that don't fire on touch devices.
-- **Pointer capture for mobile D-pads.** The biggest mobile bug was stuck movement — when your finger slides off a button, `onTouchEnd` fires on the wrong element. `setPointerCapture()` guarantees the `pointerup` event reaches the original button. This pattern should be in every mobile game tutorial.
-- **Natural selection > manual curation.** Letting the audit agent remove broken games automatically means the platform self-cleans. I don't need to review 40 games manually.
-
-### What didn't work
-
-- **Vite code splitting with Three.js.** Splitting Three.js and React Three Fiber into separate chunks broke initialization order on mobile browsers — blank white screen. Some libraries just need to be in a single bundle.
-- **`html { position: fixed }` on mobile.** This collapsed the entire page layout on touch devices. Always use `body { position: fixed }` instead — `html` is the root element and removing it from normal flow breaks everything downstream.
-- **`ReferenceError` is the #1 cause of blank pages.** 90% of the time a page is blank on mobile, it's a JavaScript crash, not a CSS issue. Always check the console before chasing layout bugs.
-- **Abstract game mechanics fail.** Games like "sort by size" or "complete the pattern" confuse 5-year-olds. The agent learned to prefer concrete actions: "tap the red balloon", "catch the falling fruit", "pop all bubbles".
 
 ## The Numbers
 
