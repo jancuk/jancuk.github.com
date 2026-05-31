@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How I Automated a Children's Game Platform with an AI Agent"
-date: 2026-05-31 09:00:00
+date: 2026-05-30 09:00:00
 categories: computer
 ---
 
