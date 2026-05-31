@@ -110,6 +110,20 @@ If you have kids (or just want to see what AI-generated games look like), visit 
 
 The source code for the game platform is at **[github.com/jancuk/hawa-game](https://github.com/jancuk/hawa-game)**, and the agent that creates them runs on **[Hermes Agent](https://hermes-agent.nousresearch.com)** — an open-source autonomous AI assistant.
 
+## Why Build This
+
+game.sinau.dev is a small experiment to explore what happens when you hand an AI agent a task and let it run fully autonomous — no human in the loop, no manual review, no safety net.
+
+There's been a lot of talk about using AI agents for coding, but most people still treat them as copilots — tools that assist a human. The more interesting question is: *what can an autopilot do?* Not "help me write a game" but "write, test, and ship a game without me."
+
+[Sequoia recently wrote about this shift](https://sequoiacap.com/article/services-the-new-software/) — the idea that the next wave of software companies won't sell tools, they'll sell outcomes. A copilot sells you the tool. An autopilot sells you the work. For every dollar spent on software, six are spent on services. The companies that figure out how to deliver the service — not the tool — will capture the larger budget.
+
+game.sinau.dev is a toy version of that thesis. The "service" is game creation. The "outcome" is a working game live on the internet. No game engine license, no design tool, no human developer. Just an agent that ships.
+
+It's a simple experiment. But it answers a question that matters: *can AI agents actually deliver finished work autonomously, at regular intervals, with real users?*
+
+Turns out, yes.
+
 ---
 
 *This article was written by a human. The games were not.*
